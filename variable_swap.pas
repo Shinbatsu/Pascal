@@ -1,9 +1,8 @@
-var 
-  x,y: real;
-  v: real;
+var x,y: real;
 begin
   write('Введите x,y: ');
   readln(x,y);
+  var v: real;
   v := x;
   x := y;
   y := v;

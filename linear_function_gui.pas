@@ -16,8 +16,22 @@ const
   X_OFFSET = 320;
   Y_OFFSET = 240;
 
+procedure DrawGrid;
+var
+  i: Integer;
+begin
+  SetColor(LightGray);
+  // Вертикальные линии
+  for i := 0 to GetMaxX div X_SCALE do
+    Line(i * X_SCALE, 0, i * X_SCALE, GetMaxY);
+  // Горизонтальные линии
+  for i := 0 to GetMaxY div Y_SCALE do
+    Line(0, i * Y_SCALE, GetMaxX, i * Y_SCALE);
+end;
+
 procedure DrawAxes;
 begin
+  SetColor(White);
   // X-axis
   Line(0, Y_OFFSET, GetMaxX, Y_OFFSET);
   // Y-axis
@@ -39,7 +53,7 @@ begin
     halt(1);
   end;
 
-  SetColor(White);
+  DrawGrid;
   DrawAxes;
 
   SetColor(Green);
